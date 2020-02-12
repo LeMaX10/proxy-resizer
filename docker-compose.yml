@@ -1,0 +1,25 @@
+version: '2.2'
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    image: resizer/php7.3
+    init: true
+    restart: always
+    environment:
+      - PHP_DISPLAY_ERRORS=true
+    volumes:
+      - ./:/var/www/html:rw
+      - ./docker/php-pool.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8080:80
+    tmpfs:
+      - /var/cache/nginx
+    volumes:
+      - ./docker/domain.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
+    volumes_from:
+      - php

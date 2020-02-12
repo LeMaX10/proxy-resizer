@@ -1,0 +1,31 @@
+{
+    "name": "lemax10/proxy-resizer",
+    "description": "simple proxy converter and resizer",
+    "keywords": ["slim", "images", "resizer", "optimization", "webp", "converter", "image-converter"],
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "VladimirPyankov",
+            "email": "rdlrobot@gmail.com"
+        }
+    ],
+    "require": {
+        "gumlet/php-image-resize": "1.9.*",
+        "guzzlehttp/psr7": "^1.6",
+        "rosell-dk/webp-convert": "~2.3",
+        "slim/slim": "^4.0",
+        "slim/psr7": "^1.0",
+        "php-di/php-di": "^6",
+        "hassankhan/config": "^2.1",
+        "spatie/image-optimizer": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t public"
+    }
+}
